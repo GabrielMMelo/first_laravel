@@ -9,9 +9,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
 
     </head>
     <body>
@@ -33,6 +34,9 @@
                     PCD
                 </div>
 		<p class="display-4 text-muted">Plano de Controle Disciplinar</p>
+		<div class="mt-5">
+			<img class="_logo" src="{{asset('img/emakersjr.png')}}">
+		</div>
             </div>
         </div>
     </body>
