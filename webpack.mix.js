@@ -12,7 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass(['resources/assets/sass/_alert.scss', 'resources/assets/sass/_badge.scss', 
+/*   .sass(['resources/assets/sass/_alert.scss', 'resources/assets/sass/_badge.scss', 
 	'resources/assets/sass/_breadcrumb.scss', 'resources/assets/sass/_button-group.scss', 
 	'resources/assets/sass/_buttons.scss', 'resources/assets/sass/_card.scss', 
 	'resources/assets/sass/_carousel.scss', 'resources/assets/sass/_close.scss', 
@@ -31,3 +31,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 	'resources/assets/sass/_type.scss', 'resources/assets/sass/_utilities.scss', 
 	'resources/assets/sass/_variables.scss', 'resources/assets/sass/_alert.scss'],
 	'public/css/btp.css');
+*/
+	.sass('resources/assets/sass/bootstrap.scss', 'public/css/btp.css');
