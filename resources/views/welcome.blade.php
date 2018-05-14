@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-	<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
 
@@ -27,11 +27,12 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            <div class="container text-center">
+                <div class="display-1">
+		<br>
+                    PCD
                 </div>
-
+		<p class="display-4 text-muted">Plano de Controle Disciplinar</p>
             </div>
         </div>
     </body>
