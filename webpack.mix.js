@@ -33,3 +33,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
 	'public/css/btp.css');
 */
 	.sass('resources/assets/sass/bootstrap.scss', 'public/css/btp.css');
+
+mix.sass('resources/assets/sass/style.scss', 'public/css/style.css');
+
+if (mix.config.production) {
+    mix.version();
+}
