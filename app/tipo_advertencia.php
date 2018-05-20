@@ -12,5 +12,5 @@ class tipo_advertencia extends Model
 	'pontos'
     ];
 
-    protected $table = "tipos_advertencia";
+    protected $table = "tipo_advertencia";
 }

@@ -18,25 +18,23 @@
 
 		<div class="form-group col-10 text-left">
 
-			<label for="atividade">Atividade:</label>
+			<label class="lead" for="atividade">Atividade:</label>
 			<select class="form-control" id="atividade">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
+			@foreach ($advertencias as $advertencia)
+				<option>{{ $advertencia->nome }}</option>
+			@endforeach
 			</select>
 		</div>
 
 		<div class="form-group col-2 text-left">
 
-			<label for="ponto">Pontos:</label>
+			<label class="lead" for="ponto">Pontos:</label>
 			<input class="form-control" id="ponto" type="text" value="{{ 2+2 }}" readonly>
 		</div>
 
 		<div class="form-group col-6 text-left">
 
-			<label for="penalizado">Penalizado:</label>
+			<label class="lead text-danger" for="penalizado">Penalizado:</label>
 			<select class="form-control" id="penalizado">
 			@foreach ($membros as $membro)
 				<option>{{ $membro->nome }}</option>
@@ -46,32 +44,30 @@
 
 		<div class="form-group col-6 text-left">
 
-			<label for="responsavel">Responsável:</label>
+			<label class="lead" for="responsavel">Responsável:</label>
 			<select class="form-control" id="responsavel">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
+			@foreach ($direxes as $direx)
+				<option>{{ $direx->nome }}</option>
+			@endforeach
 			</select>
 		</div>
 
 		<div class="form-group col-6 text-left">
 
-			<label for="data">Data:</label>
+			<label class="lead" for="data">Data:</label>
 			<input type="date" class="form-control" id="data" required>
 		</div>
 
 		<div class="form-group col-6 text-left">
 
-			<label for="hora">Hora:</label>
+			<label class="lead" for="hora">Hora:</label>
 			<input type="time" class="form-control" id="hora" required>
 		</div>
 
 		<div class="form-group col-12 text-left">
 
-			<label for="descricao">Descrição adicional:</label>
-			<textarea rows="10" class="form-control" id="descricao"></textarea>
+			<label class="lead">Descrição adicional:</label>
+			<textarea id="textarea" name="content"  class="form-control"></textarea>
 		</div>
 
 		<div class="form-group col-12">
@@ -80,4 +76,7 @@
 	</div>
 </form>
 
+<script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('js/mytinymce.js')}}"></script>
+<script src="{{asset('js/prism.js')}}"></script>
 @endsection

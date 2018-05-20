@@ -13,7 +13,7 @@
         <!-- Styles -->
 	<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('css/btp.css')}}" rel="stylesheet" type="text/css">
-
+	<link href="{{asset('css/prism.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-@yield('nav-color','light')">
