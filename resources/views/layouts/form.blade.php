@@ -59,13 +59,13 @@
 		<div class="form-group col-6 text-left">
 
 			<label for="data">Data:</label>
-			<input type="date" class="form-control" id="data">
+			<input type="date" class="form-control" id="data" required>
 		</div>
 
 		<div class="form-group col-6 text-left">
 
 			<label for="hora">Hora:</label>
-			<input type="time" class="form-control" id="hora">
+			<input type="time" class="form-control" id="hora" required>
 		</div>
 
 		<div class="form-group col-12 text-left">

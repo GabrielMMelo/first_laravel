@@ -16,5 +16,5 @@ class advertencia extends Model
 	'status'
     ];
 
-    protected $table = "advertencias";
+    protected $table = "advertencia";
 }

@@ -19,7 +19,7 @@ class TableMembros extends Migration
 	    $table->string('email');
 	    $table->string('pass');
 	    $table->primary('nome');
-	    $table->foreign('cargo')->references('id')->on('cargos')->onDelete('cascade');
+#	    $table->foreign('cargo')->references('id')->on('cargos')->onDelete('cascade');
             $table->timestamps();
         });
     }

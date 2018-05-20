@@ -12,3 +12,5 @@ yarn-error.log
 .env
 backlog.dat
 .gitignore
+.swp
+.save
