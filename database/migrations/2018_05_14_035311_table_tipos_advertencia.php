@@ -14,10 +14,9 @@ class TableTiposAdvertencia extends Migration
     public function up()
     {
         Schema::create('tipo_advertencia', function (Blueprint $table) {
-            $table->tinyInteger('id')->unsigned();
+            $table->increments('id')->unsigned();
 	    $table->string('nome');
 	    $table->tinyInteger('pontos')->unsigned();
-	    $table->primary('id');
             $table->timestamps();
         });
     }

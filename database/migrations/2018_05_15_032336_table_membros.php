@@ -15,13 +15,16 @@ class TableMembros extends Migration
     {
         Schema::create('membro', function (Blueprint $table) {
             $table->string('nome');
-	    $table->tinyInteger('cargoId')->unsigned();
+	    $table->Integer('cargo')->unsigned();
 	    $table->string('email');
 	    $table->string('pass');
+	    $table->bigInteger('cpf');
+	    $table->string('rg');
 	    $table->primary('nome');
-	    $table->foreign('cargoId')->references('id')->on('cargo')->onDelete('cascade');
+	    $table->foreign('cargo')->references('id')->on('cargo')->onDelete('cascade');
             $table->timestamps();
         });
+	DB::statement('ALTER TABLE membro CHANGE cpf cpf INT(11) UNSIGNED ZEROFILL NOT NULL');
     }
 
     /**
