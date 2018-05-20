@@ -13,5 +13,5 @@ class membro extends Model
 	'telefone'
     ];
 
-    protected $table = "membros";
+    protected $table = "membro";
 }

@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('layouts.welcome');
 });
+
+Route::get('/form', 'membroController@form');

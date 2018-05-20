@@ -14,11 +14,11 @@ class TableMembros extends Migration
     public function up()
     {
         Schema::create('membro', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('nome');
 	    $table->tinyInteger('cargo');
 	    $table->string('email');
 	    $table->string('pass');
-	    $table->primary('id');
+	    $table->primary('nome');
 	    $table->foreign('cargo')->references('id')->on('cargos')->onDelete('cascade');
             $table->timestamps();
         });
