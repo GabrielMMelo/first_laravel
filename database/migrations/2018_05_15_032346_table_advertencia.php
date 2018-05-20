@@ -21,10 +21,10 @@ class TableAdvertencia extends Migration
 	    $table->dateTime('data');
 	    $table->string('descricao');
 	    $table->tinyInteger('status')->unsigned();
-#            $table->foreign('tipo')->references('id')->on('tipo_advertencia')->onDelete('cascade');
+            $table->foreign('tipo')->references('id')->on('tipo_advertencia')->onDelete('cascade');
 	    $table->foreign('penalizado')->references('nome')->on('membro')->onDelete('cascade');
 	    $table->foreign('responsavel')->references('nome')->on('membro')->onDelete('cascade');
-# 	    $table->foreign('status')->references('id')->on('status_advertencia')->onDelete('cascade');
+ 	    $table->foreign('status')->references('id')->on('status_advertencia')->onDelete('cascade');
 
             $table->timestamps();
         });

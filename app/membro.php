@@ -8,9 +8,9 @@ class membro extends Model
 {
     protected $guarded = [
 	'nome',
-	'cargo',
-	'mail',
-	'telefone'
+	'cargoId',
+	'email',
+	'pass'
     ];
 
     protected $table = "membro";

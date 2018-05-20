@@ -14,8 +14,9 @@ class TableStatusAdvertencias extends Migration
     public function up()
     {
         Schema::create('status_advertencia', function (Blueprint $table) {
-            $table->increments('id');
+            $table->tinyInteger('id')->unsigned();
 	    $table->string('nome');
+	    $table->primary('id');
             $table->timestamps();
         });
     }

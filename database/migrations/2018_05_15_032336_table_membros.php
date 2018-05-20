@@ -1,4 +1,4 @@
-<?php
+[B<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,11 +15,11 @@ class TableMembros extends Migration
     {
         Schema::create('membro', function (Blueprint $table) {
             $table->string('nome');
-	    $table->tinyInteger('cargo');
+	    $table->tinyInteger('cargoId')->unsigned();
 	    $table->string('email');
 	    $table->string('pass');
 	    $table->primary('nome');
-#	    $table->foreign('cargo')->references('id')->on('cargos')->onDelete('cascade');
+	    $table->foreign('cargoId')->references('id')->on('cargo')->onDelete('cascade');
             $table->timestamps();
         });
     }

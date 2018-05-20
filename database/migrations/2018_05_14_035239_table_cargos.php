@@ -14,10 +14,11 @@ class TableCargos extends Migration
     public function up()
     {
         Schema::create('cargo', function (Blueprint $table) {
-            $table->increments('id');
+            $table->tinyInteger('id')->unsigned();
 	    $table->string('nome');
 	    $table->boolean('direx');
             $table->timestamps();
+	    $table->primary('id');
         });
     }
 
