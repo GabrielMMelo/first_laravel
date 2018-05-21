@@ -1,5 +1,10 @@
 @extends('master')
 
+@section('link')
+	@parent
+	<link href="{{asset('css/prism.css')}}" rel="stylesheet" type="text/css">
+@endsection
+
 @section('nav-logo','black')
 
 @section('title','PCD - Nova atividade')
@@ -10,16 +15,28 @@
 @section('search-bar')
 @endsection
 
+@section('snackbar')
+	@parent
+@endsection
+
 @section('content')
 
-<form action="#" method="post" 
+<div id="snackbar">{{ $msg or "s"}}</div>
 
+@if (isset($msg))
+		<script>
+			snackbar();
+		</script>
+@endif
+
+<form action="{{ route('form.store') }}" method="post">
+	{{ csrf_field()  }}
 	<div class="row mt-4">
 
 		<div class="form-group col-10 text-left">
 
 			<label class="lead" for="atividade">Atividade:</label>
-			<select class="form-control" id="atividade">
+			<select class="form-control" name="tipo" id="atividade">
 			@foreach ($advertencias as $advertencia)
 				<option>{{ $advertencia->nome }}</option>
 			@endforeach
@@ -35,7 +52,7 @@
 		<div class="form-group col-6 text-left">
 
 			<label class="lead text-danger" for="penalizado">Penalizado:</label>
-			<select class="form-control" id="penalizado">
+			<select class="form-control" name="penalizado" id="penalizado">
 			@foreach ($membros as $membro)
 				<option>{{ $membro->nome }}</option>
 			@endforeach
@@ -45,7 +62,7 @@
 		<div class="form-group col-6 text-left">
 
 			<label class="lead" for="responsavel">Responsável:</label>
-			<select class="form-control" id="responsavel">
+			<select class="form-control" name="responsavel" id="responsavel">
 			@foreach ($direxes as $direx)
 				<option>{{ $direx->nome }}</option>
 			@endforeach
@@ -55,19 +72,19 @@
 		<div class="form-group col-6 text-left">
 
 			<label class="lead" for="data">Data:</label>
-			<input type="date" class="form-control" id="data" required>
+			<input type="date" class="form-control" name="data" id="data" required>
 		</div>
 
 		<div class="form-group col-6 text-left">
 
 			<label class="lead" for="hora">Hora:</label>
-			<input type="time" class="form-control" id="hora" required>
+			<input type="time" class="form-control" name="hora" id="hora" required>
 		</div>
 
 		<div class="form-group col-12 text-left">
 
 			<label class="lead">Descrição adicional:</label>
-			<textarea id="textarea" name="content"  class="form-control"></textarea>
+			<textarea id="textarea" name="descricao"  class="form-control"></textarea>
 		</div>
 
 		<div class="form-group col-12">

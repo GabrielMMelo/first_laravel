@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('layouts.welcome');
 });
 
-Route::get('/form', 'membroController@form');
+Route::group(["prefix" => "form"], function(){
+
+	Route::get('/', 'formController@view')->name('form.view');
+
+	Route::post('store', 'formController@store')->name('form.store');
+});
 
 /*
  * Views com variáveis
