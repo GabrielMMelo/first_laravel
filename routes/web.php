@@ -16,3 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/form', 'membroController@form');
+
+/*
+ * Views com variáveis
+ *
+Route::get('/{id}', function($id) {
+	return view('layouts.postId')
+		->with('id', $id);
+});
+
+*/
