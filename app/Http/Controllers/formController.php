@@ -38,7 +38,8 @@ class formController extends Controller
         $advertencia->status = 2;
         $advertencia->save();
 
-        return redirect('form')->with(['msg' => 'Dados enviados com Sucesso!']);
+        return redirect()->back()->with('msg', "Dados enviados com Sucesso!");
+//        return redirect()->route('form.view',['msg' => 'Dados enviados com Sucesso!']);
 //        return redirect->back()->with('mensagem', ['Dados enviados com Sucesso!']);
 //        return route('form.view', ['mensagem'=> 'Dados enviados com Sucesso!']);
 //        return route('form.view')->with('mensagem', 'Dados enviados com Sucesso!');

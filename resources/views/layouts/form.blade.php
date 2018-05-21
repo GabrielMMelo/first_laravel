@@ -19,14 +19,18 @@
 	@parent
 @endsection
 
+@if(Session::has('msg'))
+     <?php $msg = Session::get('msg') ?>
+@endif
+
 @section('content')
 
-<div id="snackbar">{{ $msg or "s"}}</div>
+<div id="snackbar">{{ $msg or ""}}</div>
 
 @if (isset($msg))
-		<script>
-			snackbar();
-		</script>
+	<script>
+		snackbar();
+	</script>
 @endif
 
 <form action="{{ route('form.store') }}" method="post">
