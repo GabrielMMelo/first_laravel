@@ -28,7 +28,7 @@
 						<h4 class="card-title"> PCD</h4>
 						<h6 class="subtitle text-muted">Plano de Controle Disciplinar</h6>
 
-						<a href="{{ route('form.view') }}" class="btn btn-lg btn-success btn_custom mt-3 card-link">
+						<a href="{{ route('pcd.view') }}" class="btn btn-lg btn-success btn_custom mt-3 card-link">
 							Acessar
 						</a>
 

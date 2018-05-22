@@ -33,7 +33,7 @@
 	</script>
 @endif
 
-<form action="{{ route('form.store') }}" method="post">
+<form action="{{ route('pcd.form.store') }}" method="post">
 	{{ csrf_field()  }}
 	<div class="row mt-4">
 

@@ -13,4 +13,9 @@ class tipo_advertencia extends Model
     ];
 
     protected $table = "tipo_advertencia";
+/*
+    public function advertencia(){
+	return $this->hasMany('App\advertencia');
+    }
+*/
 }

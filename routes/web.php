@@ -11,17 +11,43 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
+    return "<h1>EmakersJúnior.ufla.br</h1>";
+});
+
+Route::get('/pcd', function () {
     return view('welcome');
 });
 
 
-Route::group(["prefix" => "form", "middleware" => "auth"], function(){
 
-	Route::get('/', 'formController@view')->name('form.view');
+Route::group(["prefix" => "nemesys"], function() {
 
-	Route::post('store', 'formController@store')->name('form.store');
+	Route::group(["middleware" => "auth"], function(){
+
+		Route::get('/', 'HomeController@index')->name('home');
+
+		Route::post('/register/store', 'RegisterControllerAdmin@store')->name('registerAdmin.store');
+
+		Route::group(["prefix" => "pcd"], function() {
+
+			Route::get('/', 'pcdController@view')->name('pcd.view');
+
+			Route::group(["prefix" => "form"], function() {
+
+				Route::get('/', 'formController@view')->name('pcd.form.view');
+
+				Route::post('store', 'formController@store')->name('pcd.form.store');
+			});
+		});
+	});
+
+	Auth::routes();
+
+
+
 });
+
 
 /*
  * Views com variáveis
@@ -32,7 +58,3 @@ Route::get('/{id}', function($id) {
 });
 
 */
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
