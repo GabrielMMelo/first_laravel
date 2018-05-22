@@ -36,7 +36,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+//        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -68,4 +69,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /*
+    * Sobrescrita de métodos abaixo usada para "desativar" o register
+	
+    public function showRegistrationForm(){
+
+        return redirect('login');
+    }
+
+    public function register(){
+
+    }
+    */
 }
