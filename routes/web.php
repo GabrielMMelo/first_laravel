@@ -12,10 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.welcome');
+    return view('welcome');
 });
 
-Route::group(["prefix" => "form"], function(){
+
+Route::group(["prefix" => "form", "middleware" => "auth"], function(){
 
 	Route::get('/', 'formController@view')->name('form.view');
 
@@ -31,3 +32,7 @@ Route::get('/{id}', function($id) {
 });
 
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

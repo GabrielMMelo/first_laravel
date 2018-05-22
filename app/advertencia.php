@@ -12,6 +12,7 @@ class advertencia extends Model
 	'penalizado',
 	'responsavel',
 	'data',
+	'hora',
 	'descricao',
 	'status'
     ];

@@ -18,7 +18,8 @@ class TableAdvertencia extends Migration
 	    $table->Integer('tipo')->unsigned();
 	    $table->string('penalizado');
 	    $table->string('responsavel');
-	    $table->dateTime('data');
+	    $table->date('data');
+	    $table->time('hora');
 	    $table->string('descricao');
 	    $table->Integer('status')->unsigned();
             $table->foreign('tipo')->references('id')->on('tipo_advertencia')->onDelete('cascade');
