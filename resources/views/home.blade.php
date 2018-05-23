@@ -1,9 +1,10 @@
 @extends('layouts.nemesys')
 
+@section('title', 'Dashboard')
+
 @section('nav-logo', 'black')
 
 @section('nav-items')
-
 @endsection
 
 @section('link')
@@ -37,6 +38,5 @@
 				</div>
 			</div>
 		</div>
-
 
 @endsection

@@ -20,7 +20,6 @@ Route::get('/pcd', function () {
 });
 
 
-
 Route::group(["prefix" => "nemesys"], function() {
 
 	Route::group(["middleware" => "auth"], function(){
@@ -43,8 +42,6 @@ Route::group(["prefix" => "nemesys"], function() {
 	});
 
 	Auth::routes();
-
-
 
 });
 

@@ -1,8 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.nemesys')
+
+<!-- Includes -->
+@include('partials.snackbar-header')
+@include('partials.tinymce-header')
 
 @section('link')
 	@parent
-	<link href="{{asset('css/prism.css')}}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('nav-logo','black')
@@ -12,26 +15,13 @@
 @section('nav-items')
 @endsection
 
-@section('search-bar')
-@endsection
-
-@section('snackbar')
-	@parent
-@endsection
-
 @if(Session::has('msg'))
      <?php $msg = Session::get('msg') ?>
 @endif
 
 @section('content')
 
-<div id="snackbar">{{ $msg or ""}}</div>
-
-@if (isset($msg))
-	<script>
-		snackbar();
-	</script>
-@endif
+@include('partials.snackbar-body')
 
 <form action="{{ route('pcd.form.store') }}" method="post">
 	{{ csrf_field()  }}
@@ -97,7 +87,4 @@
 	</div>
 </form>
 
-<script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
-<script src="{{asset('js/mytinymce.js')}}"></script>
-<script src="{{asset('js/prism.js')}}"></script>
 @endsection

@@ -7,19 +7,17 @@
 
         <title>@yield('title', 'Plano de Controle Disciplinar')</title>
 
+	<!-- Includes -->
+	@include('partials.bootstrap')
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
 	@section('link')
 	<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{asset('css/btp.css')}}" rel="stylesheet" type="text/css">
 	@show
 
-	@section('snackbar')
-		<script src="{{asset('js/snackbar.js')}}"></script>
-		<link href="{{asset('css/snackbar.css')}}" rel="stylesheet" type="text/css">
-	@show
     </head>
     <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-@yield('nav-color','light')">

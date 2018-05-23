@@ -1,19 +1,17 @@
-<html>
+@extends('layouts.email')
 
-<head>
-</head>
-
-<body>
+@section('content')
 Bem-vindo,
 
-<h1>{{ $user }}</h1>
+<h1 style="color: purple;">{{ $user }}</h1>
 
-Sua senha é: <h3>{{ $pass  }}</h3>
+Sua senha de acesso à plataforma é: <h3>{{ $pass  }}</h3>
 
-É altamente recomendado que altere sua senha pela plataforma!
+<br>
 
-<img src="{{ asset('img/emakersjr.png') }}" style="height: auto; width: 25%;">
+É <strong>altamente</strong> recomendado que altere sua senha pela plataforma!
 
-</body>
+<h4>Seja muito bem-vindo, Emaker!</h4>
 
-</html>
+@endsection
+
