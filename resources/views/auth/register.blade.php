@@ -51,6 +51,7 @@
                             @endif
                         </div>
 
+
 <!--                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -76,6 +77,17 @@
 
 
                         <div class="w-100"></div>
+
+                        <div class="form-group col-4 text-left"
+                            
+                            <label class="lead">Cargo </label>
+
+                            <select class="form-control" name="cargo">
+                            @foreach ($cargos as $cargo)
+                                <option>{{ $cargo->nome }}</option>
+                            @endforeach
+                            </select>
+                        </div>
 
                         <!--<div class="col-8 form-check">
                             <input type="checkbox" class="form-check-input" name="direx" id="check">

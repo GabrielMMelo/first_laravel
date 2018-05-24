@@ -1,10 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+
 use App\User;
+use App\cargo;
+
 use Validator;
 use Redirect;
 use Auth;
+use Emoji;
+
 class RegisterControllerAdmin extends Controller
 {
   public function store(Request $request)
@@ -24,8 +29,9 @@ class RegisterControllerAdmin extends Controller
         $pw = User::generatePassword();
         //add new user to database
         $user = new User;
-        $user->name = $request->input('name');
+        $user->nome = $request->input('name');
         $user->email = $request->input('email');
+        $user->cargo = cargo::where('nome', $request->input('cargo'))->get()->first()->id;
         $user->password = bcrypt($pw);
         $user->save();
         User::sendWelcomeEmail($user, $pw);

@@ -15,17 +15,17 @@ class TableAdvertencia extends Migration
     {
         Schema::create('advertencia', function (Blueprint $table) {
             $table->increments('id');
-	    $table->Integer('tipo')->unsigned();
-	    $table->string('penalizado');
-	    $table->string('responsavel');
-	    $table->date('data');
-	    $table->time('hora');
-	    $table->string('descricao');
-	    $table->Integer('status')->unsigned();
+    	    $table->Integer('tipo')->unsigned();
+    	    $table->string('penalizado');
+    	    $table->string('responsavel');
+    	    $table->date('data');
+    	    $table->time('hora');
+    	    $table->string('descricao');
+    	    $table->Integer('status')->unsigned();
             $table->foreign('tipo')->references('id')->on('tipo_advertencia')->onDelete('cascade');
-	    $table->foreign('penalizado')->references('nome')->on('membro')->onDelete('cascade');
-	    $table->foreign('responsavel')->references('nome')->on('membro')->onDelete('cascade');
- 	    $table->foreign('status')->references('id')->on('status_advertencia')->onDelete('cascade');
+    	    $table->foreign('penalizado')->references('nome')->on('users')->onDelete('cascade');
+    	    $table->foreign('responsavel')->references('nome')->on('users')->onDelete('cascade');
+     	    $table->foreign('status')->references('id')->on('status_advertencia')->onDelete('cascade');
 
             $table->timestamps();
         });

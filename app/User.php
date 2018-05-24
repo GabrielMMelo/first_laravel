@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Mail;
+use DB;
+use App\cargo;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -14,8 +17,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'name',
+        'cargo',
+        'email',
+        'password',
     ];
 
     /**
@@ -44,8 +50,10 @@ class User extends Authenticatable
     }
 
     public static function isDirex($user){
-        return $user->name == "Gabriel Marques de Melo";
-    //  return $user->direx;
+        //return $user['nome'] == "Gabriel Marques de Melo";
+    return cargo::where('id', $user['cargo'])->get()->first()->direx;
+    
+    //$user->direx;
     }
 
 }

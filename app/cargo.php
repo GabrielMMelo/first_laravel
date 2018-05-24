@@ -12,5 +12,5 @@ class cargo extends Model
 	'direx'
     ];
 
-    protected $table = "cargos";
+    protected $table = "cargo";
 }

@@ -27,6 +27,8 @@ Route::group(["prefix" => "nemesys"], function() {
 
 		Route::get('/', 'HomeController@index')->name('home');
 
+		Route::get('/register', 'RegisterControllerAdmin@view')->name('registerAdmin.store');
+
 		Route::post('/register/store', 'RegisterControllerAdmin@store')->name('registerAdmin.store');
 
 		Route::group(["prefix" => "pcd"], function() {

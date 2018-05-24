@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\membro;
+use App\User;
 use App\advertencia;
 use App\tipo_advertencia;
 
@@ -14,7 +14,7 @@ class pcdController extends Controller
 {
     public function view(){
 
-	$list_membros_pontos = membro::all(['nome'])->toArray();
+	$list_membros_pontos = User::all(['nome'])->toArray();
 	for ($i=0;$i<count($list_membros_pontos);$i++){
 		$list_membros_pontos[$i]['pontos'] = DB::table('advertencia')
 		            ->join('tipo_advertencia', 'advertencia.tipo', '=', 'tipo_advertencia.id')
