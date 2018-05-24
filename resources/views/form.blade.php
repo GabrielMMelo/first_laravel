@@ -8,6 +8,10 @@
 	@parent
 @endsection
 
+@section('script')
+	<script src="{{ asset('js/submit_confirm.js') }}"></script>
+@endsection
+
 @section('nav-logo','black')
 
 @section('title','PCD - Nova atividade')

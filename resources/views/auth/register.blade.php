@@ -1,10 +1,14 @@
 @extends('layouts.nemesys')
 
+@section('title','PCD - Nova atividade')
+
 @include('partials.snackbar-header')
 
-@section('nav-logo','black')
+@section('script')
+    <script src="{{ asset('js/submit_confirm.js') }}"></script>
+@endsection
 
-@section('title','PCD - Nova atividade')
+@section('nav-logo','black')
 
 @section('nav-items')
 @endsection

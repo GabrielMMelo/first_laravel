@@ -21,9 +21,6 @@
         <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
         @show
 
-	@section('script')
-	@show
-
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-@yield('nav-color','light')">
@@ -130,5 +127,8 @@
                 @yield('content')
             </div>
         </div>
+        @section('script')
+
+        @show
     </body>
 </html>
