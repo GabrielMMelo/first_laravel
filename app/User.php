@@ -27,22 +27,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function generatePassword()
-    {
+    public static function generatePassword(){
       // Generate random string and encrypt it. 
-//      return bcrypt(str_random(15));
+//  return bcrypt(str_random(15));
 	return str_random(15);
     }
-    public static function sendWelcomeEmail($user, $pw)
-    {
+    public static function sendWelcomeEmail($user, $pw){
       // Generate a new reset password token
-      $token = app('auth.password.broker')->createToken($user);
+        $token = app('auth.password.broker')->createToken($user);
       
       // Send email
-      Mail::send('email.welcome', ['user' => $user->name, 'pass' => $pw], function ($m) use ($user) {
-        $m->from('hello@appsite.com', 'Emakers Júnior');
-        $m->to($user->email, $user->name)->subject('Bem-vindo à Diretoria Executiva da Emakers Júnior!');
-     });
+        Mail::send('email.welcome', ['user' => $user->name, 'pass' => $pw], function ($m) use ($user) {
+            $m->from('hello@appsite.com', 'Emakers Júnior');
+            $m->to($user->email, $user->name)->subject('Bem-vindo à Diretoria Executiva da Emakers Júnior!');
+        });
+    }
+
+    public static function isDirex($user){
+        return $user->name == "Gabriel Marques de Melo";
+    //  return $user->direx;
     }
 
 }

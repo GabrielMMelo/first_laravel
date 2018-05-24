@@ -6,8 +6,10 @@ use DB;
 
 use App\advertencia;
 use App\membro;
+use App\User;
 use App\tipo_advertencia;
-
+use Auth;
+use Emoji;
 use Illuminate\Http\Request;
 
 class formController extends Controller
@@ -24,26 +26,28 @@ class formController extends Controller
     }
 
     public function store(Request $request){
-        $nomeTipo = $request->input('tipo');
-	$query = DB::table('tipo_advertencia')
-                     ->select(DB::raw('id'))	// cuidado ao usar raw statements -> problemas de injecao de vulnerabilidade
-                     ->where('nome', '=', $nomeTipo)
-                     ->first();		// get na primeira posição do registro
-        $advertencia = new advertencia;
-        $advertencia->tipo = $query->id;	// pega o id na query
-        $advertencia->penalizado = $request->input('penalizado');
-        $advertencia->responsavel = $request->input('responsavel');
-        $advertencia->data = $request->input('data');
-        $advertencia->hora = $request->input('hora');	
-        $advertencia->descricao = $request->input('descricao');
-        $advertencia->status = 2;
-        $advertencia->save();
+        if (User::isDirex(Auth::user())) {
+            $nomeTipo = $request->input('tipo');
+    	    $query = DB::table('tipo_advertencia')
+                        ->select(DB::raw('id'))	// cuidado ao usar raw statements -> problemas de injecao de vulnerabilidade
+                        ->where('nome', '=', $nomeTipo)
+                        ->first();		// get na primeira posição do registro
+            $advertencia = new advertencia;
+            $advertencia->tipo = $query->id;	// pega o id na query
+            $advertencia->penalizado = $request->input('penalizado');
+            $advertencia->responsavel = $request->input('responsavel');
+            $advertencia->data = $request->input('data');
+            $advertencia->hora = $request->input('hora');	
+            $advertencia->descricao = $request->input('descricao');
+            $advertencia->status = 2;
+            $advertencia->save();
+            return redirect()->back()->with(['msg' => "Dados enviados com Sucesso!", 'emoji' => Emoji::findByName('smile') ]);
+        }
 
-        return redirect()->back()->with('msg', "Dados enviados com Sucesso!");
-//        return redirect()->route('form.view',['msg' => 'Dados enviados com Sucesso!']);
-//        return redirect->back()->with('mensagem', ['Dados enviados com Sucesso!']);
-//        return route('form.view', ['mensagem'=> 'Dados enviados com Sucesso!']);
-//        return route('form.view')->with('mensagem', 'Dados enviados com Sucesso!');
+        else{
+            return redirect()->back()->with(['msg' => 'Você não possui permissão pra isso! ', 'color' => 'red', 'emoji' => "\u{1F631}" ]);   
+        }
+        
     }
 }
 

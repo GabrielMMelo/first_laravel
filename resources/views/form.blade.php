@@ -15,10 +15,6 @@
 @section('nav-items')
 @endsection
 
-@if(Session::has('msg'))
-     <?php $msg = Session::get('msg') ?>
-@endif
-
 @section('content')
 
 @include('partials.snackbar-body')

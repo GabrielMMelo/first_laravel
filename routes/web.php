@@ -15,6 +15,7 @@ Route::get('/', function() {
     return "<i>Nosso site lindo: </i> <h1>emakersJúnior.ufla.br <span style='color: purple;'> <3</span></h1>";
 });
 
+
 Route::get('/pcd', function () {
     return view('welcome');
 });
