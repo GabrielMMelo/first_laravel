@@ -40,6 +40,7 @@ class formController extends Controller
             $advertencia->descricao = $request->input('descricao');
             $advertencia->status = 2;
             $advertencia->save();
+            User::sendAdvertenciaEmail($advertencia, $nomeTipo);
             return redirect()->back()->with(['msg' => "Dados enviados com Sucesso!", 'emoji' => Emoji::findByName('smile') ]);
         }
 
