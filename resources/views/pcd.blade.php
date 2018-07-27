@@ -9,6 +9,44 @@
 @section('content')
 
 	<div class="mt-4">
+	<h1 class="display-4 mb-4"> 2018/2</h1> 
+	<div class="row">
+		<div class="col-4">
+			<h4 class="text-muted"></h4>	
+		</div>
+
+		<div class="col-4">
+			<h4 class="text-muted">22/02/2018</h4>	
+		</div>
+
+		<div class="col-4 text-right">
+			<button class="btn btn-danger"><i class="fas fa-recycle"></i></button>	
+		</div>
+		
+	</div>
+	 
+
+		<div class="_botaoReset">
+			<form action="" method="get">
+				<div class="form-group">
+					<label for="data inicio">Data de Inicio:</label>
+					<input id="data inicio" type="date" placeholder="Digite a Data de Inicio"/>
+				</div>
+				<div  class="form-group">
+					<label for="data fim">Data do Termino:</label>
+					<input id="data fim" type="date" placeholder="Digite a Data do Termino "/>
+				</div>
+				<div  class="form-group">
+					<label for="semestre">Qual o semestre:</label>
+					<input id="semestre" type="radio" name="semestre" value="/1"/> /1
+					<input id="semestre" type="radio" name="semestre" value="/2"/> /2
+				</div>
+				<div  class="form-group">
+					<input type="submit" value="Criar" />
+				</div>
+			</form>
+		</div>
+		
 
 		<table class="table">
 		    <thead>

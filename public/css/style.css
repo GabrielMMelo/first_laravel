@@ -2,4 +2,7 @@
   height: auto;
   width: 25%;
 }
+._botaoReset{
+	display: none;
+}
 
