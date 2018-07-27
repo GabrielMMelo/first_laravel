@@ -6,11 +6,16 @@
 
 @endsection
 
+@section('link')
+@parent
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+@endsection
+
 @section('content')
 
 	<div class="mt-4">
 	<h1 class="display-4 mb-4"> 2018/2</h1> 
-	<div class="row">
+	<div class="row mb-4" >
 		<div class="col-4">
 			<h4 class="text-muted"></h4>	
 		</div>
@@ -20,13 +25,13 @@
 		</div>
 
 		<div class="col-4 text-right">
-			<button class="btn btn-danger"><i class="fas fa-recycle"></i></button>	
+			<button class="btn btn-danger"  onclick="Mudarestado(1)"><i class="fas fa-recycle"></i></button>	
 		</div>
 		
 	</div>
 	 
 
-		<div class="_botaoReset">
+		<div class="_botaoReset" id = 1>
 			<form action="" method="get">
 				<div class="form-group">
 					<label for="data inicio">Data de Inicio:</label>
@@ -46,6 +51,7 @@
 				</div>
 			</form>
 		</div>
+
 		
 
 		<table class="table">
@@ -98,4 +104,19 @@
         </div>
 
 
+    <script>
+
+function Mudarestado(divid){
+ var testarDisplay = document.getElementById(divid).style.display;
+  if (testarDisplay == "none") {
+  	 document.getElementById(divid).style.display = "inline";
+  }
+
+  else{
+  document.getElementById(divid).style.display = "none";
+  }
+
+}
+
+</script>
 @endsection
