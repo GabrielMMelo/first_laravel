@@ -14,14 +14,14 @@
 @section('content')
 
 	<div class="mt-4">
-	<h1 class="display-4 mb-4"> 2018/2</h1> 
+	<h1 class="display-4 mb-4"> {{  $semester_year.'/' }}{{  $semester_number  }}</h1>
 	<div class="row mb-4" >
 		<div class="col-4">
 			<h4 class="text-muted"></h4>	
 		</div>
 
 		<div class="col-4">
-			<h4 class="text-muted">22/02/2018</h4>	
+			<h4 class="text-muted"> {{  $semester_begin . ' - ' . $semester_end }}</h4>
 		</div>
 
 		<div class="col-4 text-right">

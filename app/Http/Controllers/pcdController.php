@@ -9,6 +9,7 @@ use App\Warning;
 use App\WarningType;
 
 use DB;
+use Carbon;
 
 class pcdController extends Controller
 {
@@ -23,11 +24,23 @@ class pcdController extends Controller
                  	       		    ->sum('points');
 	}
 
+	$semester = DB::table('semesters')->orderBy('id', 'desc')->first();
+	$semesterBeginDate = new Carbon( $semester->begin );
+	$year = $semesterBeginDate->year;
+	$begin = $semesterBeginDate->day.'/'.$semesterBeginDate->month.'/'.$semesterBeginDate->year;
+
+	$semesterEndDate = new Carbon( $semester->end );
+	$end = $semesterEndDate->day.'/'.$semesterEndDate->month.'/'.$semesterEndDate->year;
+
 //	Acesso aos dados com:
 //	echo($list_membros[0]['nome']);
 
 	return view('pcd', [
-		'membros_pontos' => $list_membros_pontos
+		'membros_pontos' => $list_membros_pontos,
+        'semester_year' => $year,
+        'semester_number' => $semester->semesters_number ? 2 : 1,
+        'semester_begin' => $begin,
+        'semester_end' => $end,
 	]);
     }
 }

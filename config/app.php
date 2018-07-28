@@ -229,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Emoji' => Unicodeveloper\Emoji\Facades\Emoji::class,
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 
