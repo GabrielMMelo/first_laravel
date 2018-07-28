@@ -15,7 +15,7 @@ class formController extends Controller
 {
     public function view(){
         $list_membros = User::all();
-        $list_direxes = DB::select('SELECT m.nome FROM users as m, cargo as c WHERE c.id = m.cargo and c.direx = true');
+        $list_direxes = DB::select('SELECT u.name FROM users as u, cargo as c WHERE c.id = u.job and c.direx = true');
         $list_tipos_advertencias = tipo_advertencia::all();
         return view('form', [
         'membros' => $list_membros,

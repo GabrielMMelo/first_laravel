@@ -8,7 +8,7 @@ class cargo extends Model
 {
     protected $guarded = [
 	'id',
-	'nome',
+	'name',
 	'direx'
     ];
 

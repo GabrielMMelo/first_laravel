@@ -15,7 +15,7 @@ class TableCargos extends Migration
     {
         Schema::create('cargo', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-    	    $table->string('nome')->unique();
+    	    $table->string('name')->unique();
     	    $table->boolean('direx');
             $table->timestamps();
         });

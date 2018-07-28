@@ -67,7 +67,7 @@
 
 			    <tr>
 			      <th scope="row">{{ $loop->iteration }}</th>
-			      <td>{{ $membro_pontos['nome']  }}</td>
+			      <td>{{ $membro_pontos['name']  }}</td>
 			      <td>{{ $membro_pontos['pontos']  }}</td>
 			    </tr>
 

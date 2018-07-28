@@ -31,7 +31,7 @@ class RegisterControllerAdmin extends Controller
         $user = new User;
         $user->nome = $request->input('name');
         $user->email = $request->input('email');
-        $user->cargo = cargo::where('nome', $request->input('cargo'))->get()->first()->id;
+        $user->job = cargo::where('nome', $request->input('cargo'))->get()->first()->id;
         $user->password = bcrypt($pw);
         $user->save();
         User::sendWelcomeEmail($user, $pw);

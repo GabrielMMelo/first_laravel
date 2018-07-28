@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $guarded = [
         'name',
-        'cargo',
+        'job',
         'email',
         'password',
     ];

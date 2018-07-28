@@ -84,7 +84,7 @@
 
                             <select class="form-control" name="cargo">
                             @foreach ($cargos as $cargo)
-                                <option>{{ $cargo->nome }}</option>
+                                <option>{{ $cargo->name }}</option>
                             @endforeach
                             </select>
                         </div>

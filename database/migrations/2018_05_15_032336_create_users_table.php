@@ -14,15 +14,15 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('nome');
+            $table->string('name');
             $table->Integer('id')->index()->unique()->unsigned();
-            $table->Integer('cargo')->unsigned();
+            $table->Integer('job')->unsigned();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->primary('nome');
-            $table->foreign('cargo')->references('id')->on('cargo')->onDelete('cascade');
+            $table->primary('name');
+            $table->foreign('job')->references('id')->on('cargo')->onDelete('cascade');
         });
         DB::statement('ALTER TABLE users CHANGE id id INT(10)AUTO_INCREMENT');
     }
