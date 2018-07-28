@@ -13,7 +13,7 @@ class TableCargos extends Migration
      */
     public function up()
     {
-        Schema::create('cargo', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
     	    $table->string('name')->unique();
     	    $table->boolean('direx');
@@ -28,6 +28,6 @@ class TableCargos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cargo');
+        Schema::dropIfExists('job');
     }
 }

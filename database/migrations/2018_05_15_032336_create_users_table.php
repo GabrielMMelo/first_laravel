@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->primary('name');
-            $table->foreign('job')->references('id')->on('cargo')->onDelete('cascade');
+            $table->foreign('job')->references('id')->on('job')->onDelete('cascade');
         });
         DB::statement('ALTER TABLE users CHANGE id id INT(10)AUTO_INCREMENT');
     }

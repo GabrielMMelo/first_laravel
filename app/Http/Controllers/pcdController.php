@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\advertencia;
-use App\tipo_advertencia;
+use App\WarningType;
 
 use DB;
 
@@ -14,13 +14,13 @@ class pcdController extends Controller
 {
     public function view(){
 
-	$list_membros_pontos = User::all(['nome'])->toArray();
+	$list_membros_pontos = User::all(['name'])->toArray();
 	for ($i=0;$i<count($list_membros_pontos);$i++){
 		$list_membros_pontos[$i]['pontos'] = DB::table('advertencia')
-		            ->join('tipo_advertencia', 'advertencia.tipo', '=', 'tipo_advertencia.id')
-                	          ->select('advertencia.penalizado', 'advertencia.tipo', 'tipo_advertencia.pontos')
-                        	  	->where('penalizado', $list_membros_pontos[$i]['nome'])
-                 	       		    ->sum('pontos');
+		            ->join('warning_types', 'advertencia.tipo', '=', 'warning_types.id')
+                	          ->select('advertencia.penalizado', 'advertencia.tipo', 'warning_types.points')
+                        	  	->where('penalizado', $list_membros_pontos[$i]['name'])
+                 	       		    ->sum('points');
 	}
 
 //	Acesso aos dados com:

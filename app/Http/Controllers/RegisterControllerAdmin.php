@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
-use App\cargo;
+use App\Job;
 
 use Validator;
 use Redirect;
@@ -31,7 +31,7 @@ class RegisterControllerAdmin extends Controller
         $user = new User;
         $user->nome = $request->input('name');
         $user->email = $request->input('email');
-        $user->job = cargo::where('nome', $request->input('cargo'))->get()->first()->id;
+        $user->job = job::where('nome', $request->input('job'))->get()->first()->id;
         $user->password = bcrypt($pw);
         $user->save();
         User::sendWelcomeEmail($user, $pw);

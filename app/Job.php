@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class status_advertencia extends Model
+class Job extends Model
 {
     protected $guarded = [
 	'id',
-	'nome'
+	'name',
+	'direx'
     ];
 
-    protected $table = "status_advertencia";
+    protected $table = "jobs";
 }

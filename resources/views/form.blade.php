@@ -32,7 +32,7 @@
 			<label class="lead" for="atividade">Atividade:</label>
 			<select class="form-control" name="tipo" id="atividade">
 			@foreach ($advertencias as $advertencia)
-				<option>{{ $advertencia->nome }}</option>
+				<option>{{ $advertencia->name }}</option>
 			@endforeach
 			</select>
 		</div>
@@ -48,7 +48,7 @@
 			<label class="lead text-danger" for="penalizado">Penalizado:</label>
 			<select class="form-control" name="penalizado" id="penalizado">
 			@foreach ($membros as $membro)
-				<option>{{ $membro->nome }}</option>
+				<option>{{ $membro->name }}</option>
 			@endforeach
 			</select>
 		</div>
@@ -58,7 +58,7 @@
 			<label class="lead" for="responsavel">Responsável:</label>
 			<select class="form-control" name="responsavel" id="responsavel">
 			@foreach ($direxes as $direx)
-				<option>{{ $direx->nome }}</option>
+				<option>{{ $direx->name }}</option>
 			@endforeach
 			</select>
 		</div>

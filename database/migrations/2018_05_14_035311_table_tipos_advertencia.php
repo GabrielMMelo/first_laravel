@@ -13,10 +13,10 @@ class TableTiposAdvertencia extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_advertencia', function (Blueprint $table) {
+        Schema::create('warning_types', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-    	    $table->string('nome');
-    	    $table->tinyInteger('pontos')->unsigned();
+    	    $table->string('name');
+    	    $table->tinyInteger('points')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class TableTiposAdvertencia extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_advertencia');
+        Schema::dropIfExists('warningType');
     }
 }

@@ -19,8 +19,8 @@ class advertencia extends Model
 
     protected $table = "advertencia";
 /*
-    public function tipo_advertencia(){
-    	return $this->belongsTo('App\tipo_advertencia');
+    public function warningType(){
+    	return $this->belongsTo('App\warningType');
     }
 */
 }

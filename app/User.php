@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Mail;
 use DB;
-use App\cargo;
+use App\Job;
 
 class User extends Authenticatable
 {
@@ -50,18 +50,18 @@ class User extends Authenticatable
         });
     }
 
-    public static function sendAdvertenciaEmail($advertencia, $nomeTipo){
-        $user = User::where('nome', '=', $advertencia->penalizado)->get();
+    public static function sendAdvertenciaEmail($warning, $warningTypeName){
+        $user = User::where('name', '=', $warning->penalizado)->get();
         $user = $user[0];
         // Send email
-        Mail::send('email.advertencia', ['user' => $advertencia->penalizado, 'advertenciaNome' => $nomeTipo, 'advertencia' =>$advertencia], function ($m) use ($user) {
+        Mail::send('email.warning', ['user' => $warning->penalizado, 'advertenciaNome' => $warningTypeName, 'advertencia' =>$warning], function ($m) use ($user) {
             $m->from('hello@appsite.com', 'Emakers Júnior');
-            $m->to($user->email, $user->nome)->subject(':( Você recebeu uma advertência da Emakers Júnior!');
+            $m->to($user->email, $user->name)->subject(':( Você recebeu uma advertência da Emakers Júnior!');
         });
     }
 
     public static function isDirex($user){
-        return cargo::where('id', $user['cargo'])->get()->first()->direx;
+        return Job::where('id', $user['job'])->get()->first()->direx;
     }
 
 }

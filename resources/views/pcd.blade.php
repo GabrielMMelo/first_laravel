@@ -29,7 +29,6 @@
 		</div>
 		
 	</div>
-	 
 
 		<div class="_botaoReset" id = 1>
 			<form action="" method="get">

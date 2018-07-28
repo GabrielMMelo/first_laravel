@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\cargo;
+use App\job;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(){
 
-        return view('auth/register')->with(['cargos' => cargo::all()]);
+        return view('auth/register')->with(['cargos' => job::all()]);
     }
 
     /*

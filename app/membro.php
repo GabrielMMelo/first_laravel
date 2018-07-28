@@ -8,7 +8,7 @@ class membro extends Model
 {
     protected $guarded = [
 	'nome',
-	'cargo',
+	'job',
 	'cpf',
 	'rg',
 	'email',

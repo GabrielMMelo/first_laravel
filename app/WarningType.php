@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tipo_advertencia extends Model
+class WarningType extends Model
 {
     protected $guarded = [
 	'tipo',
@@ -12,7 +12,7 @@ class tipo_advertencia extends Model
 	'pontos'
     ];
 
-    protected $table = "tipo_advertencia";
+    protected $table = "warning_types";
 /*
     public function advertencia(){
 	return $this->hasMany('App\advertencia');

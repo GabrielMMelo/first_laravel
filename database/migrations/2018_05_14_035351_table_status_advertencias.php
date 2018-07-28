@@ -13,9 +13,9 @@ class TableStatusAdvertencias extends Migration
      */
     public function up()
     {
-        Schema::create('status_advertencia', function (Blueprint $table) {
+        Schema::create('warning_status', function (Blueprint $table) {
            $table->increments('id')->unsigned();
-	       $table->string('nome');
+	       $table->string('name');
            $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class TableStatusAdvertencias extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_advertencia');
+        Schema::dropIfExists('warningStatus');
     }
 }
