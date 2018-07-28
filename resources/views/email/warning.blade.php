@@ -20,14 +20,14 @@
 
     <span><strong>Advertência:</strong> {{  $advertenciaNome  }}</span>
     <br>
-    <!-- TODO: Adicionar pontuação referente à advertencia recebida -->
+    <!-- TODO: Adicionar pontuação referente à Warning recebida -->
     <span><strong>Data:</strong> {{  $advertencia->data  }}</span>
     <br>
     <span><strong>Hora:</strong> {{  $advertencia->hora  }}</span>
     <br>
     <span><strong>Descrição:</strong> {{  $advertencia->descricao  }}</span>
 
-    <!-- TODO: Exibir quantos pontos o usuário possui atualmente (com a advertencia atual) -->
+    <!-- TODO: Exibir quantos pontos o usuário possui atualmente (com a Warning atual) -->
 
     <!-- TODO: Falar sobre recurso -->
 

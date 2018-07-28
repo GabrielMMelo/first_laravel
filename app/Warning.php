@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class advertencia extends Model
+class Warning extends Model
 {
     protected $guarded = [
 	'id',
-	'tipo',
-	'penalizado',
-	'responsavel',
-	'data',
-	'hora',
-	'descricao',
+	'type',
+	'penalized',
+	'responsible',
+	'date',
+	'time',
+	'description',
 	'status'
     ];
 
-    protected $table = "advertencia";
+    protected $table = "warnings";
 /*
     public function warningType(){
     	return $this->belongsTo('App\warningType');

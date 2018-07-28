@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 
-use App\advertencia;
+use App\Warning;
 use App\User;
 use App\WarningType;
 use Auth;
@@ -31,13 +31,13 @@ class formController extends Controller
                         ->select(DB::raw('id'))	// cuidado ao usar raw statements -> problemas de injecao de vulnerabilidade
                         ->where('name', '=', $nomeTipo)
                         ->first();		// get na primeira posição do registro
-            $advertencia = new advertencia;
-            $advertencia->tipo = $query->id;	// pega o id na query
-            $advertencia->penalizado = $request->input('penalizado');
-            $advertencia->responsavel = $request->input('responsavel');
-            $advertencia->data = $request->input('data');
-            $advertencia->hora = $request->input('hora');	
-            $advertencia->descricao = $request->input('descricao');
+            $advertencia = new Warning;
+            $advertencia->type = $query->id;	// pega o id na query
+            $advertencia->penalized = $request->input('penalizado');
+            $advertencia->responsible = $request->input('responsavel');
+            $advertencia->date = $request->input('data');
+            $advertencia->time = $request->input('hora');
+            $advertencia->description = $request->input('descricao');
             $advertencia->status = 2;
             $advertencia->save();
             User::sendAdvertenciaEmail($advertencia, $nomeTipo);

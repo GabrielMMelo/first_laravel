@@ -8,7 +8,7 @@ class WarningStatus extends Model
 {
     protected $guarded = [
 	'id',
-	'nome'
+	'name'
     ];
 
     protected $table = "warning_status";
