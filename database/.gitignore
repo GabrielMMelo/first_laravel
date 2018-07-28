@@ -1,1 +1,3 @@
 *.sqlite
+pcd_users.sql
+pcd_password_resets.sql
