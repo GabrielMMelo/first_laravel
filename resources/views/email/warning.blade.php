@@ -18,14 +18,14 @@
 
     <h4 class="text-muted"> Informações da advertência: </h4>
 
-    <span><strong>Advertência:</strong> {{  $advertenciaNome  }}</span>
+    <span><strong>Advertência:</strong> {{  $warningTypeName  }}</span>
     <br>
     <!-- TODO: Adicionar pontuação referente à Warning recebida -->
-    <span><strong>Data:</strong> {{  $advertencia->data  }}</span>
+    <span><strong>Data:</strong> {{  $warning->date  }}</span>
     <br>
-    <span><strong>Hora:</strong> {{  $advertencia->hora  }}</span>
+    <span><strong>Hora:</strong> {{  $warning->time  }}</span>
     <br>
-    <span><strong>Descrição:</strong> {{  $advertencia->descricao  }}</span>
+    <span><strong>Descrição:</strong> {{  $warning->description  }}</span>
 
     <!-- TODO: Exibir quantos pontos o usuário possui atualmente (com a Warning atual) -->
 

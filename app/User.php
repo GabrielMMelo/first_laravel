@@ -54,7 +54,7 @@ class User extends Authenticatable
         $user = User::where('name', '=', $warning->penalized)->get();
         $user = $user[0];
         // Send email
-        Mail::send('email.warning', ['user' => $warning->penalizado, 'advertenciaNome' => $warningTypeName, 'Warning' =>$warning], function ($m) use ($user) {
+        Mail::send('email.warning', ['user' => $warning->penalized, 'warningTypeName' => $warningTypeName, 'warning' =>$warning], function ($m) use ($user) {
             $m->from('hello@appsite.com', 'Emakers Júnior');
             $m->to($user->email, $user->name)->subject(':( Você recebeu uma advertência da Emakers Júnior!');
         });
