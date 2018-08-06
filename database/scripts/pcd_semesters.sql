@@ -1,1 +1,0 @@
-INSERT INTO pcd.semesters (begin, end, semesters_number) VALUES (1, '2018-03-12 22:48:59', '2018-07-28 22:48:59', 0);

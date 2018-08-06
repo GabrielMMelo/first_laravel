@@ -29,9 +29,9 @@ class RegisterControllerAdmin extends Controller
         $pw = User::generatePassword();
         //add new user to database
         $user = new User;
-        $user->nome = $request->input('name');
+        $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->job = job::where('nome', $request->input('job'))->get()->first()->id;
+        $user->job = job::where('name', $request->input('job'))->get()->first()->id;
         $user->password = bcrypt($pw);
         $user->save();
         User::sendWelcomeEmail($user, $pw);

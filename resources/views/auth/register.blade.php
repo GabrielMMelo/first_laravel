@@ -82,7 +82,7 @@
                             
                             <label class="lead">Cargo </label>
 
-                            <select class="form-control" name="cargo">
+                            <select class="form-control" name="job">
                             @foreach ($cargos as $cargo)
                                 <option>{{ $cargo->name }}</option>
                             @endforeach

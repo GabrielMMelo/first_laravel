@@ -1,2 +1,0 @@
-INSERT INTO pcd.warning_types (id, name, points, created_at, updated_at) VALUES (1, 'Atraso em reunião (Geral, projeto, assembleia e demais eventos)', 6, null, null);
-INSERT INTO pcd.warning_types (id, name, points, created_at, updated_at) VALUES (2, 'Ausência em reunião (Geral, projeto, assembleia e demais eventos)', 10, null, null);
