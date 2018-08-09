@@ -66,7 +66,13 @@
 
 			    <tr>
 			      <th scope="row">{{ $loop->iteration }}</th>
-			      <td>{{ $membro_pontos['name']  }}</td>
+			      <td>
+			      	<form action="{{route('log.user')}}" method="POST">
+			      		{{csrf_field()}}
+			      		<input type=hidden name="name" value="{{$membro_pontos['name']}}">
+			      		<button type=submit  class="btn btn-link">{{ $membro_pontos['name']  }}</button>
+			      	</form>
+			      </td>
 			      <td>{{ $membro_pontos['pontos']  }}</td>
 			    </tr>
 
@@ -90,9 +96,12 @@
                                         		</a>
 						</div>
 						<div class="col-6">
-	                                       		 <a href="{{ '#' }}" class="btn btn-lg btn-danger btn_custom mt-3 card-link">
-                                                        	Esqueci
-                                        		</a>
+												<form action="{{route('log.general')}}">
+			      									{{csrf_field()}}
+			      									<input type=hidden name="name">
+	                                       		 	<button type=submit class="btn btn-lg btn-danger btn_custom mt-3 card-link">
+                                                        	Log
+                                        		</button>
 						</div>
 
 					</div>
