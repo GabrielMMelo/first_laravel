@@ -35,6 +35,12 @@ Route::group(["prefix" => "nemesys"], function() {
 
 			Route::get('/', 'pcdController@view')->name('pcd.view');
 
+			Route::get('/log/general', 'logController@general')->name('log.general');
+
+			Route::post('/log/user', 'logController@user')->name('log.user');
+			
+			Route::post('/log/delete', 'logController@delete')->name('log.delete');
+
 			Route::group(["prefix" => "form"], function() {
 
 				Route::get('/', 'formController@view')->name('pcd.form.view');
