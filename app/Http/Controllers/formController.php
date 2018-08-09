@@ -27,7 +27,7 @@ class formController extends Controller
     }
 
     public function store(Request $request){
-        if (User::isDirex(Auth::user())) {
+        if ((User::isPresident(Auth::user()) == 2) or (User::isInternalProcesses(Auth::user()) == 4)){
             $warningTypeName = $request->input('tipo');
     	    $query = DB::table('warning_types')
                         ->select(DB::raw('id'))	// cuidado ao usar raw statements -> problemas de injecao de vulnerabilidade
