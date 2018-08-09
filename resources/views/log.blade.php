@@ -42,7 +42,11 @@
 								<form action="{{route('log.delete')}}" method="POST">
 									{{csrf_field()}}
 									<input type=hidden name="delete" value="{{$historic['id']}}">
-									<button type=submit class="btn btn-warning"> Deletar </button>
+									@if ($historic['dateNow'] == 1)
+										@if ($historic['visible'] == 1)
+											<button type=submit class="btn btn-warning"> Deletar </button>
+										@endif
+									@endif
 								</form>
 							</td>
 						</tr>
