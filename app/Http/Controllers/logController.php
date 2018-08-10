@@ -7,6 +7,8 @@
 
 	use App\User;
 
+	use App\Warning;
+
 	use Auth;
 
 
@@ -107,7 +109,9 @@
 		//Deletar
 		public function delete(Request $request){
 			$identifier = $request->input('delete');
-			$delete = DB::table('warnings')->where('id', $identifier)->delete();
+			$delete = Warning::find($identifier);
+			$delete->status = 4;
+			$delete->save();
 			return redirect()->route('pcd.view');
 		}
 	}
