@@ -27,7 +27,7 @@ class formController extends Controller
     }
 
     public function store(Request $request){
-        if ((User::isPresident(Auth::user()) == 2) or (User::isInternalProcesses(Auth::user()) == 4)){
+        if ((User::isPresident(Auth::user())) or (User::isInternalProcesses(Auth::user()))){
             $warningTypeName = $request->input('tipo');
     	    $query = DB::table('warning_types')
                         ->select(DB::raw('id'))	// cuidado ao usar raw statements -> problemas de injecao de vulnerabilidade
@@ -42,19 +42,19 @@ class formController extends Controller
             $warning->date = $request->input('data');
             $warning->time = $request->input('hora');
             $warning->description = $request->input('descricao');
-            $warning->status = 2;
+            $warning->status = 1;
             // Get current semester
             $lastSemester = DB::table('semesters')->orderBy('id', 'desc')->first();
             $warning->id_semester = $lastSemester->id;
 
             // Mount new log
             $log = new Log;
-            $log->id_warning = $warning->id;
             $log->status = $warning->status;
 
             // Transaction to make sure that log was stored properly
             DB::transaction(function() use ($warning, $log){
                 $warning->save();
+                $log->id_warning = $warning->id;
                 $log->save();
             });
 
@@ -65,8 +65,9 @@ class formController extends Controller
         }
 
         else{
-            return redirect()->back()->with(['msg' => 'Você não possui permissão pra isso! ', 'color' => 'red', 'emoji' => "\u{1F631}" ]);   
+            return redirect()->back()->with(['msg' => 'Você não possui permissão pra isso! ', 'color' => 'red', 'emoji' => "\u{1F631}" ]);
         }
     }
 }
+
 

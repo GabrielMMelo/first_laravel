@@ -20,7 +20,8 @@ class pcdController extends Controller
 		$list_membros_pontos[$i]['pontos'] = DB::table('warnings')
 		            ->join('warning_types', 'warnings.type', '=', 'warning_types.id')
                 	          ->select('warnings.penalized', 'warnings.tipo', 'warning_types.points')
-                        	  	->where('penalized', $list_membros_pontos[$i]['name'])
+                        	  	->where([['penalized','=', $list_membros_pontos[$i]['name']],
+						['status', '=', 1]])
                  	       		    ->sum('points');
 	}
 

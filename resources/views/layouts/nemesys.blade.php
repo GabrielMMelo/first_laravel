@@ -25,15 +25,15 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-@yield('nav-color','light')">
                 @if ($__env->yieldContent('nav-logo') === "black" )
-                <a class="collapse navbar-collapse" id="navbarImg" href="#"><img  src="{{asset('img/emakersjr-black.png')}}" height="60em"></a>
+                <a class="collapse navbar-collapse" id="navbarImg" href="{{ route('home') }}"><img  src="{{asset('img/emakersjr-black.png')}}" height="60em"></a>
                 @elseif ($__env->yieldContent('nav-logo') === "white" )
-                <a class="collapse navbar-collapse" id="navbarImg" href="#"><img  src="{{asset('img/emakersjr-white.png')}}" height="60em"></a>
+                <a class="collapse navbar-collapse" id="navbarImg" href="{{ route('home') }}"><img  src="{{asset('img/emakersjr-white.png')}}" height="60em"></a>
                 @else
-                <a class="collapse navbar-collapse" id="navbarImg" href="#"><img  src="{{asset('img/emakersjr-colored.png')}}" height="60em"></a>
+                <a class="collapse navbar-collapse" id="navbarImg" href="{{ route('home') }}"><img  src="{{asset('img/emakersjr-colored.png')}}" height="60em"></a>
                 @endif
                 <div class="container">
 
-                        <a class="navbar-brand h1 mb-0" href="#"> Home </a>
+                        <a class="navbar-brand h1 mb-0" href="{{ route('home')  }}"> Home </a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite,#navbarImg">
 
@@ -70,7 +70,7 @@
 		                        @else
 
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">{{ Auth::user()->nome }}</a>
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">{{ Auth::user()->name }}</a>
 						<ul class="dropdown-menu" >
 							<li>
                         		    			<a  class="dropdown-item"  href="{{ route('logout') }}"

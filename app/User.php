@@ -65,10 +65,17 @@ class User extends Authenticatable
     }
 
     public static function isPresident($user){
-      return Job::where('id', $user['job'])->get()->first()->id;
+        if (Job::where('id', $user['job'])->get()->first()->id == Job::where('name', "Diretor Presidente")->get()->first()->id)
+            return true;
+        else
+            return false;
     }
 
     public static function isInternalProcesses($user){
-      return Job::where('id', $user['job'])->get()->first()->id;
+        if (Job::where('id', $user['job'])->get()->first()->id == Job::where('name', "Diretor de Processos Internos")->get()->first()->id)
+            return true;
+        else
+            return false;
     }
 }
+

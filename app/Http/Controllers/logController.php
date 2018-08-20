@@ -24,16 +24,13 @@
 			case 3:
 				$name = "Em processo";
 				break;
-			case 4:
-				$name = "Deletada";
-				break;
 		}
 		return $name;
 	}
 
 	//Função que torna o botão visível para Presidente e Gestão de Pessoas
 	function visible(){
-		if ((User::isPresident(Auth::user()) == 2) or (User::isInternalProcesses(Auth::user()) == 4))
+		if ((User::isPresident(Auth::user())) or (User::isInternalProcesses(Auth::user())))
 			return 1;
 		else return 0;
 	}
@@ -70,7 +67,11 @@
 				$html[$i]['status'] = $status;
 				$html[$i]['id_semester'] = $historic->id_semester;
 				$html[$i]['dateNow'] = dateDelete($historic->date);
-				$html[$i]['visible'] = visible();
+				// If it's "indeferido"
+				if($status == "Indeferida")
+		                    $html[$i]['visible'] = 0;
+				else
+				    $html[$i]['visible'] = visible();
 				$i = $i + 1;
 			}
 			return ($html);
@@ -110,7 +111,7 @@
 		public function delete(Request $request){
 			$identifier = $request->input('delete');
 			$delete = Warning::find($identifier);
-			$delete->status = 4;
+			$delete->status = 2;
 			$delete->save();
 			return redirect()->route('pcd.view');
 		}
