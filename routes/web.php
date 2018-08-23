@@ -27,7 +27,7 @@ Route::group(["prefix" => "nemesys"], function() {
 
 		Route::get('/', 'HomeController@index')->name('home');
 
-		Route::get('/register', 'RegisterControllerAdmin@view')->name('registerAdmin.store');
+		Route::get('/register', 'RegisterControllerAdmin@view')->name('register');
 
 		Route::post('/register/store', 'RegisterControllerAdmin@store')->name('registerAdmin.store');
 

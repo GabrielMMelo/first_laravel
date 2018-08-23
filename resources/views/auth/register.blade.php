@@ -1,6 +1,6 @@
 @extends('layouts.nemesys')
 
-@section('title','PCD - Nova atividade')
+@section('title','Novo membro')
 
 @include('partials.snackbar-header')
 

@@ -46,7 +46,7 @@ class User extends Authenticatable
       // Send email
         Mail::send('email.welcome', ['user' => $user->name, 'pass' => $pw], function ($m) use ($user) {
             $m->from('hello@appsite.com', 'Emakers Júnior');
-            $m->to($user->email, $user->name)->subject('Bem-vindo à Diretoria Executiva da Emakers Júnior!');
+            $m->to($user->email, $user->name)->subject('Bem-vindo à Emakers Júnior!');
         });
     }
 

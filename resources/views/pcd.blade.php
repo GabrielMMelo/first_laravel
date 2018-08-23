@@ -30,8 +30,11 @@
 		
 	</div>
 
+	<!-- TODO: Use isPresident() and isInternalProcesses() methods here! -->
+	@if (Auth::user()->job == 1 or Auth::user()->job == 3)
 		<div class="_botaoReset" id = 1>
 			<form action="" method="get">
+			{{csrf_field()}}
 				<div class="form-group">
 					<label for="data inicio">Data de Inicio:</label>
 					<input id="data inicio" type="date" placeholder="Digite a Data de Inicio"/>
@@ -50,6 +53,7 @@
 				</div>
 			</form>
 		</div>
+	@endif
 
 		
 

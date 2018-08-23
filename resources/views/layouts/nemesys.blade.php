@@ -72,6 +72,16 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">{{ Auth::user()->name }}</a>
 						<ul class="dropdown-menu" >
+                            <li>
+                                <!-- TODO: SHIT
+                                    Get direxes
+                                -->
+                                @if (Auth::user()->job < 6)
+                                    <a class="dropdown-item"  href="{{ route('register') }}"
+                                    <span class="text-danger ">Registrar membro</span>
+                                    </a>
+                                @endif
+                            </li>
 							<li>
                         		    			<a  class="dropdown-item"  href="{{ route('logout') }}"
                 	        	        	        	onclick="event.preventDefault();
@@ -132,3 +142,4 @@
         @show
     </body>
 </html>
+
